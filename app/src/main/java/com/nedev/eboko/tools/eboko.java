@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.nedev.eboko.models.entities.Devoir;
 import com.nedev.eboko.models.entities.Note;
+import com.nedev.eboko.services.GetMesDevoirsAT;
+import com.nedev.eboko.services.GetMesNotes;
 
 import io.objectbox.Box;
 
@@ -21,7 +23,8 @@ public class eboko extends Application {
         noteBox = ObjectBox.get().boxFor(Note.class);
 
         if(ConnexionDetector.isConnected(getApplicationContext())){
-            //new;
+            new GetMesDevoirsAT();
+            new GetMesNotes();
         }
     }
 }
