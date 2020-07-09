@@ -20,5 +20,8 @@ public class eboko extends Application {
         devoirBox = ObjectBox.get().boxFor(Devoir.class);
         noteBox = ObjectBox.get().boxFor(Note.class);
 
+        if(ConnexionDetector.isConnected(getApplicationContext())){
+            //new;
+        }
     }
 }
