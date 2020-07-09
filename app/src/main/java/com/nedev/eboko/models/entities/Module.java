@@ -10,7 +10,8 @@ import io.objectbox.relation.ToOne;
 public class Module {
 
     @Id
-    private Long idMo;
+    private long id;
+    private long idMo;
     private String codeMo;
     private String creditMo;
     private Anneescolaire idA;
@@ -25,7 +26,8 @@ public class Module {
     public Module() {
     }
 
-    public Module(Long idMo, String codeMo, String creditMo, Anneescolaire idA, ToOne<Filiere> idF, ToOne<Niveau> idN, ToOne<Ue> idUe, String idM, ToOne<Semestre> idS, String choixMo, Date dateCreation) {
+    public Module(long id, long idMo, String codeMo, String creditMo, Anneescolaire idA, ToOne<Filiere> idF, ToOne<Niveau> idN, ToOne<Ue> idUe, String idM, ToOne<Semestre> idS, String choixMo, Date dateCreation) {
+        this.id = id;
         this.idMo = idMo;
         this.codeMo = codeMo;
         this.creditMo = creditMo;
@@ -39,11 +41,19 @@ public class Module {
         this.dateCreation = dateCreation;
     }
 
-    public Long getIdMo() {
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getIdMo() {
         return idMo;
     }
 
-    public void setIdMo(Long idMo) {
+    public void setIdMo(long idMo) {
         this.idMo = idMo;
     }
 

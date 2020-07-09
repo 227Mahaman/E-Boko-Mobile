@@ -10,7 +10,8 @@ import io.objectbox.relation.ToOne;
 public class Inscription {
 
     @Id
-    private Long idI;
+    private long id;
+    private long idI;
     private String codeI;
     private Date dateI;
     private ToOne<Anneescolaire> idA;
@@ -23,7 +24,8 @@ public class Inscription {
     public Inscription() {
     }
 
-    public Inscription(Long idI, String codeI, Date dateI, ToOne<Anneescolaire> idA, ToOne<Filiere> idF, ToOne<Niveau> idN, String idNu, String matriculeE, Date dateCreation) {
+    public Inscription(long id, long idI, String codeI, Date dateI, ToOne<Anneescolaire> idA, ToOne<Filiere> idF, ToOne<Niveau> idN, String idNu, String matriculeE, Date dateCreation) {
+        this.id = id;
         this.idI = idI;
         this.codeI = codeI;
         this.dateI = dateI;
@@ -35,7 +37,15 @@ public class Inscription {
         this.dateCreation = dateCreation;
     }
 
-    public Long getIdI() {
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getIdI() {
         return idI;
     }
 

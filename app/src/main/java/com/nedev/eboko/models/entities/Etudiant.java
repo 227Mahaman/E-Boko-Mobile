@@ -9,7 +9,8 @@ import io.objectbox.annotation.Id;
 public class Etudiant {
 
     @Id
-    private Long idE;
+    private long id;
+    private long idE;
     private String matriculeE;
     private String nomE;
     private String prenomE;
@@ -30,7 +31,8 @@ public class Etudiant {
     public Etudiant() {
     }
 
-    public Etudiant(Long idE, String matriculeE, String nomE, String prenomE, Date dateNE, String lieuNE, String adressePersoE, String adresseProE, String emailE, String sexE, String nationaliteE, String mobileE, String nomSCE, String telSCE, String fonctionSCE, String serviceSCE, Date dateCreation) {
+    public Etudiant(long id, long idE, String matriculeE, String nomE, String prenomE, Date dateNE, String lieuNE, String adressePersoE, String adresseProE, String emailE, String sexE, String nationaliteE, String mobileE, String nomSCE, String telSCE, String fonctionSCE, String serviceSCE, Date dateCreation) {
+        this.id = id;
         this.idE = idE;
         this.matriculeE = matriculeE;
         this.nomE = nomE;
@@ -50,7 +52,15 @@ public class Etudiant {
         this.dateCreation = dateCreation;
     }
 
-    public Long getIdE() {
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getIdE() {
         return idE;
     }
 

@@ -9,6 +9,7 @@ import io.objectbox.annotation.Id;
 public class Filiere {
 
     @Id
+    private long id;
     private Long idF;
     private String codeF;
     private String intituleF;

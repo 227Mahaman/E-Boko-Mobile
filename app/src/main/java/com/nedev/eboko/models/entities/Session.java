@@ -10,7 +10,8 @@ import io.objectbox.relation.ToOne;
 public class Session {
 
     @Id
-    private Long idSes;
+    private long id;
+    private long idSes;
     private String codeSes;
     private Date debutSes;
     private Date finSes;
@@ -19,7 +20,8 @@ public class Session {
     public Session() {
     }
 
-    public Session(Long idSes, String codeSes, Date debutSes, Date finSes, ToOne<Ue> idUe) {
+    public Session(long id, long idSes, String codeSes, Date debutSes, Date finSes, ToOne<Ue> idUe) {
+        this.id = id;
         this.idSes = idSes;
         this.codeSes = codeSes;
         this.debutSes = debutSes;
@@ -27,11 +29,19 @@ public class Session {
         this.idUe = idUe;
     }
 
-    public Long getIdSes() {
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getIdSes() {
         return idSes;
     }
 
-    public void setIdSes(Long idSes) {
+    public void setIdSes(long idSes) {
         this.idSes = idSes;
     }
 

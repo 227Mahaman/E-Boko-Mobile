@@ -9,7 +9,8 @@ import io.objectbox.annotation.Id;
 public class Ue {
 
     @Id
-    private Long idUe;
+    private long id;
+    private long idUe;
     private String codeUe;
     private String intitule;
     private Date dateCreation;
@@ -17,18 +18,27 @@ public class Ue {
     public Ue() {
     }
 
-    public Ue(Long idUe, String codeUe, String intitule, Date dateCreation) {
+    public Ue(long id, long idUe, String codeUe, String intitule, Date dateCreation) {
+        this.id = id;
         this.idUe = idUe;
         this.codeUe = codeUe;
         this.intitule = intitule;
         this.dateCreation = dateCreation;
     }
 
-    public Long getIdUe() {
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getIdUe() {
         return idUe;
     }
 
-    public void setIdUe(Long idUe) {
+    public void setIdUe(long idUe) {
         this.idUe = idUe;
     }
 

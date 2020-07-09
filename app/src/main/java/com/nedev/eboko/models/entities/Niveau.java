@@ -9,7 +9,8 @@ import io.objectbox.annotation.Id;
 public class Niveau {
 
     @Id
-    private Long idN;
+    private long id;
+    private long idN;
     private String codeN;
     private String intituleN;
     private String montantScolariteN;
@@ -18,7 +19,8 @@ public class Niveau {
     public Niveau() {
     }
 
-    public Niveau(Long idN, String codeN, String intituleN, String montantScolariteN, Date dateCreation) {
+    public Niveau(long id, long idN, String codeN, String intituleN, String montantScolariteN, Date dateCreation) {
+        this.id = id;
         this.idN = idN;
         this.codeN = codeN;
         this.intituleN = intituleN;
@@ -26,11 +28,19 @@ public class Niveau {
         this.dateCreation = dateCreation;
     }
 
-    public Long getIdN() {
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getIdN() {
         return idN;
     }
 
-    public void setIdN(Long idN) {
+    public void setIdN(long idN) {
         this.idN = idN;
     }
 

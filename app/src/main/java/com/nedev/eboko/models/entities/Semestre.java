@@ -10,7 +10,8 @@ import io.objectbox.relation.ToOne;
 public class Semestre {
 
     @Id
-    private Long idS;
+    private long id;
+    private long idS;
     private String codeS;
     private ToOne<Niveau> idN;
     private String intituleS;
@@ -19,7 +20,8 @@ public class Semestre {
     public Semestre() {
     }
 
-    public Semestre(Long idS, String codeS, ToOne<Niveau> idN, String intituleS, Date dateCreation) {
+    public Semestre(long id, long idS, String codeS, ToOne<Niveau> idN, String intituleS, Date dateCreation) {
+        this.id = id;
         this.idS = idS;
         this.codeS = codeS;
         this.idN = idN;
@@ -27,11 +29,19 @@ public class Semestre {
         this.dateCreation = dateCreation;
     }
 
-    public Long getIdS() {
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getIdS() {
         return idS;
     }
 
-    public void setIdS(Long idS) {
+    public void setIdS(long idS) {
         this.idS = idS;
     }
 

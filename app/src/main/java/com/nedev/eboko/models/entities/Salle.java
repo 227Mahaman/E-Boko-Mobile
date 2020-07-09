@@ -9,7 +9,8 @@ import io.objectbox.annotation.Id;
 public class Salle {
 
     @Id
-    private Long idSa;
+    private long id;
+    private long idSa;
     private String codeSa;
     private String intituleSa;
     private String descriptionSa;
@@ -19,7 +20,8 @@ public class Salle {
     public Salle() {
     }
 
-    public Salle(Long idSa, String codeSa, String intituleSa, String descriptionSa, String capaciteSa, Date dateCreation) {
+    public Salle(long id, long idSa, String codeSa, String intituleSa, String descriptionSa, String capaciteSa, Date dateCreation) {
+        this.id = id;
         this.idSa = idSa;
         this.codeSa = codeSa;
         this.intituleSa = intituleSa;
@@ -28,11 +30,19 @@ public class Salle {
         this.dateCreation = dateCreation;
     }
 
-    public Long getIdSa() {
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getIdSa() {
         return idSa;
     }
 
-    public void setIdSa(Long idSa) {
+    public void setIdSa(long idSa) {
         this.idSa = idSa;
     }
 
