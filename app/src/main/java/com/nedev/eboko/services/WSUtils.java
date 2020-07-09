@@ -7,8 +7,10 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.mobandme.android.transformer.Transformer;
 import com.nedev.eboko.models.entities.Devoir;
+import com.nedev.eboko.models.entities.Etudiant;
 import com.nedev.eboko.models.entities.Note;
 import com.nedev.eboko.models.vo.DevoirVo;
+import com.nedev.eboko.models.vo.EtudiantVo;
 import com.nedev.eboko.models.vo.NoteVo;
 import com.nedev.eboko.tools.Constantes;
 import com.nedev.eboko.tools.JsonDateDeserializer;
@@ -33,6 +35,7 @@ public class WSUtils {
     //Initialisation de l'ObjectBox
     private static Box<Devoir> devoirBox;
     private static Box<Note> noteBox;
+    private static Box<Etudiant> etudiantBox;
 
     public static ArrayList<DevoirVo> getMesDevoirs() throws Exception {
         Response response = OKHttpUtils.sendGetOkHttpRequest(Constantes.MES_DEVOIRS_URL);
@@ -107,6 +110,44 @@ public class WSUtils {
             Log.e("Mes Notes téléchargés",noteVos.toString());
             //Retoruner les données récupérées
             return noteVos;
+        }
+    }
+
+    public static ArrayList<EtudiantVo> getTousLesEtudiants() throws Exception {
+        Response response = OKHttpUtils.sendGetOkHttpRequest(Constantes.TOUS_LES_ETUDIANTS_URL);
+        if(response.code()!= HttpsURLConnection.HTTP_OK){
+            throw new Exception("Réponse du serveur incorrecte :" + response.code());
+        } else {
+            InputStreamReader inputStreamReader = new InputStreamReader(response.body().byteStream());
+            Gson gson = new GsonBuilder().registerTypeAdapter(Date.class, new JsonDateDeserializer()).create();
+            JSONArray resp = new JSONArray(InputStreamToString(inputStreamReader));
+            ArrayList<EtudiantVo> etudiantVos = gson.fromJson(resp.toString(), new TypeToken<ArrayList<EtudiantVo>>(){}.getType());
+            inputStreamReader.close();
+
+            if(etudiantVos != null && !etudiantVos.isEmpty()){
+                Transformer etudiantModelTransformer = new Transformer
+                        .Builder()
+                        .build(EtudiantVo.class);
+                //Initialisation de la box pour note
+                etudiantBox = ObjectBox.get().boxFor(Etudiant.class);
+
+                //Vidage de notre noteBox
+                noteBox.removeAll();
+                //Boucler sur la liste
+                for(EtudiantVo etudiantVo:etudiantVos){
+                    if(etudiantVo != null){
+                        //Converting your Model objects to your Domain objects.
+                        Etudiant etudiantTosave = (Etudiant) etudiantModelTransformer.transform(etudiantVo);
+
+                        //Enregistrer les données dans notre noteBox
+                        etudiantBox.put(etudiantTosave);
+                    }
+                }
+            }
+
+            Log.e("Les Etudiants téléchargés::",etudiantVos.toString());
+            //Retoruner les données récupérées
+            return etudiantVos;
         }
     }
 

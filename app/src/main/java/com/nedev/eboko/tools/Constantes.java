@@ -9,4 +9,5 @@ public class Constantes {
     //URL WS
     public static final String MES_DEVOIRS_URL = HTTP_HEADER+IP_ADDRESS+"/devoir/byEtudiant/{1}";
     public static final String MES_NOTES_URL = HTTP_HEADER+IP_ADDRESS+"/note/byEtudiant/{1}";
+    public static final String TOUS_LES_ETUDIANTS_URL = HTTP_HEADER+IP_ADDRESS+"/etudiant/all";
 }
