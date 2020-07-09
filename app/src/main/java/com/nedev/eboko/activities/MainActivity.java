@@ -1,8 +1,10 @@
-package com.nedev.eboko;
+package com.nedev.eboko.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.nedev.eboko.R;
 
 public class MainActivity extends AppCompatActivity {
 
