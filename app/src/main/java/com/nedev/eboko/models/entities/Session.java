@@ -1,0 +1,69 @@
+package com.nedev.eboko.models.entities;
+
+import java.util.Date;
+
+import io.objectbox.annotation.Entity;
+import io.objectbox.annotation.Id;
+import io.objectbox.relation.ToOne;
+
+@Entity
+public class Session {
+
+    @Id
+    private Long idSes;
+    private String codeSes;
+    private Date debutSes;
+    private Date finSes;
+    private ToOne<Ue> idUe;
+
+    public Session() {
+    }
+
+    public Session(Long idSes, String codeSes, Date debutSes, Date finSes, ToOne<Ue> idUe) {
+        this.idSes = idSes;
+        this.codeSes = codeSes;
+        this.debutSes = debutSes;
+        this.finSes = finSes;
+        this.idUe = idUe;
+    }
+
+    public Long getIdSes() {
+        return idSes;
+    }
+
+    public void setIdSes(Long idSes) {
+        this.idSes = idSes;
+    }
+
+    public String getCodeSes() {
+        return codeSes;
+    }
+
+    public void setCodeSes(String codeSes) {
+        this.codeSes = codeSes;
+    }
+
+    public Date getDebutSes() {
+        return debutSes;
+    }
+
+    public void setDebutSes(Date debutSes) {
+        this.debutSes = debutSes;
+    }
+
+    public Date getFinSes() {
+        return finSes;
+    }
+
+    public void setFinSes(Date finSes) {
+        this.finSes = finSes;
+    }
+
+    public ToOne<Ue> getIdUe() {
+        return idUe;
+    }
+
+    public void setIdUe(ToOne<Ue> idUe) {
+        this.idUe = idUe;
+    }
+}
