@@ -10,7 +10,7 @@ import io.objectbox.relation.ToOne;
 public class Semestre {
 
     @Id
-    private long id;
+    public long id;
     private long idS;
     private String codeS;
     private ToOne<Niveau> idN;

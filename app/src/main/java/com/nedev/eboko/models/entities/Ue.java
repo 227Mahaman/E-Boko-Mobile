@@ -9,7 +9,7 @@ import io.objectbox.annotation.Id;
 public class Ue {
 
     @Id
-    private long id;
+    public long id;
     private long idUe;
     private String codeUe;
     private String intitule;

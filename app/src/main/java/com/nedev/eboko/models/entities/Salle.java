@@ -9,7 +9,7 @@ import io.objectbox.annotation.Id;
 public class Salle {
 
     @Id
-    private long id;
+    public long id;
     private long idSa;
     private String codeSa;
     private String intituleSa;

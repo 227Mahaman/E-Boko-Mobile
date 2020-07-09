@@ -10,7 +10,7 @@ import io.objectbox.relation.ToOne;
 public class Inscription {
 
     @Id
-    private long id;
+    public long id;
     private long idI;
     private String codeI;
     private Date dateI;

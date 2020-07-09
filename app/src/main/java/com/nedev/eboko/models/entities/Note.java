@@ -10,7 +10,7 @@ import io.objectbox.relation.ToOne;
 public class Note {
 
     @Id
-    private long id;
+    public long id;
     private long idNo;
     private String codeNo;
     private String valeurNo;

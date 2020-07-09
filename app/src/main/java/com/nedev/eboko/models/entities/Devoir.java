@@ -10,7 +10,7 @@ import io.objectbox.relation.ToOne;
 public class Devoir {
 
     @Id
-    private long id;
+    public long id;
     private Long idD;
     private String codeD;
     private String codeNu;

@@ -10,7 +10,7 @@ import io.objectbox.relation.ToOne;
 public class Session {
 
     @Id
-    private long id;
+    public long id;
     private long idSes;
     private String codeSes;
     private Date debutSes;

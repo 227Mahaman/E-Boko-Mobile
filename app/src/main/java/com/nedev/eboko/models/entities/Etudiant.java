@@ -9,7 +9,7 @@ import io.objectbox.annotation.Id;
 public class Etudiant {
 
     @Id
-    private long id;
+    public long id;
     private long idE;
     private String matriculeE;
     private String nomE;

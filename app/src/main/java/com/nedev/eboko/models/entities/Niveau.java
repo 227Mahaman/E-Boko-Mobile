@@ -9,7 +9,7 @@ import io.objectbox.annotation.Id;
 public class Niveau {
 
     @Id
-    private long id;
+    public long id;
     private long idN;
     private String codeN;
     private String intituleN;

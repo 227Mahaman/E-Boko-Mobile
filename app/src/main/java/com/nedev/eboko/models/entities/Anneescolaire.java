@@ -7,23 +7,23 @@ import io.objectbox.annotation.Id;
 public class Anneescolaire {
 
     @Id
-    private long id;
+    public long id;
     private long idA;
     private String codeA;
     private String intituleA;
     private String datasourceA;
-    private String dA;
+    private String dtA;
 
     public Anneescolaire() {
     }
 
-    public Anneescolaire(long id, long idA, String codeA, String intituleA, String datasourceA, String dA) {
+    public Anneescolaire(long id, long idA, String codeA, String intituleA, String datasourceA, String dtA) {
         this.id = id;
         this.idA = idA;
         this.codeA = codeA;
         this.intituleA = intituleA;
         this.datasourceA = datasourceA;
-        this.dA = dA;
+        this.dtA = dtA;
     }
 
     public long getId() {
@@ -62,11 +62,11 @@ public class Anneescolaire {
         this.datasourceA = datasourceA;
     }
 
-    public String getdA() {
-        return dA;
+    public String getDtA() {
+        return dtA;
     }
 
-    public void setdA(String dA) {
-        this.dA = dA;
+    public void setDtA(String dtA) {
+        this.dtA = dtA;
     }
 }
